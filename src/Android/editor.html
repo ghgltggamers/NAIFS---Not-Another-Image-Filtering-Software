@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIFS</title>
+    <link rel="stylesheet" href="molten.css/molten-fonts.css">
+    <link rel="stylesheet" href="molten.css/molten.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="filters.css">
+    <link rel="shortcut icon" href="NAIFS.png" type="image/png">
+    <style>
+        .layer{
+            width: 300px;
+            height: 300px;
+            transition: 1s;
+        }
+        .layer img{
+            width: 300px;
+        }
+
+        #layer-1{
+            width: 300px;
+            height: 300px;
+        }
+
+        #option button{
+            margin: 10px;
+            min-height: 150px;
+            min-width: 150px;
+            max-height: 150px;
+            max-width: 150px;
+        }
+
+        #option{
+            display: flex;
+            overflow: scroll;
+        }
+
+        #widget{
+            display: flex;
+            overflow: scroll;
+        }
+
+        #widget button{
+            min-height: 150px;
+            min-width: 150px;
+            max-height: 150px;
+            max-width: 150px;
+        }
+
+        .layer-img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 300px;
+            width: 300px;
+        }
+
+        #project{
+            max-width: 400px;
+            max-height: 300px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id = "widget">
+
+    </div>
+    <br>
+    <center>
+        <div id="project">
+    <div class="layer" id="layer-1">
+        <div id="layer-2">
+            <div id="layer-3">
+                <img src="select.png" alt="Image" id="img">
+            </div>
+        </div>
+    </div>
+    </div>
+    </center>
+    <br>
+    <div id="option">
+
+    </div>
+    <br>
+    <br>
+    <div id="bottom">
+
+    </div>
+</body>
+<script src="lib/dlib.js"></script>
+<script src="export_manager.js"></script>
+<script src="export.js"></script>
+<script src="filters.js"></script>
+<script>
+    // project name
+    var project_name = prompt("Please enter your project name");
+
+    if (project_name){
+
+    }
+    else {
+        project_name = "NAIFS Project";
+    }
+
+    document.title += ` -  ${project_name}`
+</script>
+<script>
+    // first upload
+    var is_uploaded = false;
+
+    document.getElementById('img').addEventListener('click', function(){
+        if (is_uploaded === false){
+            var file_input = document.createElement("input");
+            file_input.type = "file";
+            file_input.accept = ".png,.jpg,.jpeg";
+            file_input.name = "image"
+            file_input.style.display = "none";
+
+            document.head.appendChild(file_input);
+
+            file_input.click();
+
+            file_input.addEventListener('change', function(){
+                var url = URL.createObjectURL(file_input.files[0]);
+                document.getElementById('img').src = url;
+                is_uploaded = true;
+            });
+
+            file_input.remove();
+        }
+        else if (is_uploaded === true){
+            console.log("main image was already uploaded");
+        }
+        else {
+            console.log("Invalid defination of is_update");
+        }
+    })
+</script>
+<script>
+    function setContrast(){
+        var val = prompt("Enter contrast {%}");
+        contrast(val)
+    }
+
+    function setBrightness(){
+        var val = prompt("Enter brightness {%}");
+        brightness(val)
+    }
+
+    function setSepia(){
+        var val = prompt("Enter sepia {%}");
+        sepia(val)
+    }
+
+    function setOpacity(){
+        var val = prompt("Enter opacity {0 to 1 where 0 means not vissible and 1 means fully vissible}");
+        // document.getElementById(current_layer).style.opacity = val;
+        img.style.opacity = val;
+    }
+
+    function setGrayscale(){
+        var val = prompt("Enter grayscale {%}");
+        grayscale(val)
+    }
+
+    function setInvert(){
+        var val = prompt("Enter invert {%}");
+        invert(val)
+    }
+
+    function setSaturate(){
+        var val = prompt("Enter saturation {%}");
+        saturate(val)
+    }
+
+    function setBlur(){
+        var val = prompt("Enter blur {pixels}");
+        blur(val)
+    }
+
+    function setHueRotation(){
+        var val = prompt("Enter hue rotation {degrees eg 45, 90, 120, 78. 248 etc.}");
+        hue_rotate(val)
+    }
+</script>
+<script>
+    // ui
+    const ui = new Dlib_Android();
+
+    // none
+    const none_button_widget = ui.Android().Gbutton_type_3('none', none);
+    none_button_widget.height = '150px';
+    none_button_widget.width = '150px';
+    none_button_widget.render(document.getElementById('option'));
+
+    // contrast
+    const contrast_button_widget = ui.Android().Gbutton_type_3('contrast', setContrast);
+    contrast_button_widget.height = '150px';
+    contrast_button_widget.width = '150px';
+    contrast_button_widget.render(document.getElementById('option'));
+
+
+    // brightness
+    const brightness_button_widget = ui.Android().Gbutton_type_3('brightness', setBrightness);
+    brightness_button_widget.height = '150px';
+    brightness_button_widget.width = '150px';
+    brightness_button_widget.render(document.getElementById('option'));
+
+    // saturate
+    const saturate_button_widget = ui.Android().Gbutton_type_3('saturation', setSaturate);
+    saturate_button_widget.height = '150px';
+    saturate_button_widget.width = '150px';
+    saturate_button_widget.render(document.getElementById('option'));
+
+    // grayscale
+    const grayscale_button_widget = ui.Android().Gbutton_type_3('grayscale', setGrayscale);
+    grayscale_button_widget.height = '150px';
+    grayscale_button_widget.width = '150px';
+    grayscale_button_widget.render(document.getElementById('option'));
+
+    //  sepia
+    const   sepia_button_widget = ui.Android().Gbutton_type_3('sepia', setSepia);
+    sepia_button_widget.height = '150px';
+    sepia_button_widget.width = '150px';
+    sepia_button_widget.render(document.getElementById('option'));
+
+    // opacity
+    const opacity_button_widget = ui.Android().Gbutton_type_3('opacity', setOpacity);
+    opacity_button_widget.height = '150px';
+    opacity_button_widget.width = '150px';
+    opacity_button_widget.render(document.getElementById('option'));
+
+    // invert
+    const invert_button_widget = ui.Android().Gbutton_type_3('invert', setInvert);
+    invert_button_widget.height = '150px';
+    invert_button_widget.width = '150px';
+    invert_button_widget.render(document.getElementById('option'));
+
+
+    // blur
+     const blur_button_widget = ui.Android().Gbutton_type_3('blur', setBlur);
+    blur_button_widget.height = '150px';
+    blur_button_widget.width = '150px';
+    blur_button_widget.render(document.getElementById('option'));
+
+
+    // hue rotation
+     const hue_rotation_button_widget = ui.Android().Gbutton_type_3('hue rotation', setHueRotation);
+    hue_rotation_button_widget.height = '150px';
+    hue_rotation_button_widget.width = '150px';
+    hue_rotation_button_widget.render(document.getElementById('option'));
+</script>
+
+<script>
+    var img_layer_1 = document.createElement('img');
+    img_layer_1.style.position = "absolute";
+    img_layer_1.classList.add("layer-img");
+    img_layer_1.style.top = "0";
+    img_layer_1.style.left = "0";
+    img_layer_1.id = "img-1";
+    img_layer_1.style.height = "300px";
+    img_layer_1.style.width = "300px";
+
+    var img_layer_2 = document.createElement('img');
+    img_layer_2.style.position = "absolute";
+    img_layer_2.id = "img-2";
+    img_layer_2.classList.add("layer-img");
+    img_layer_2.style.top = "0";
+    img_layer_2.style.left = "0";
+    img_layer_2.style.height = "300px";
+    img_layer_2.style.width = "300px";
+
+    var img_layer_3 = document.createElement('img');
+    img_layer_3.style.position = "absolute";
+    img_layer_3.id = "img-3";
+    img_layer_3.classList.add("layer-img");
+    img_layer_3.style.top = "0";
+    img_layer_3.style.left = "0";
+    img_layer_3.style.height = "300px";
+    img_layer_3.style.width = "300px";
+
+
+    // Image changer for layers
+    function add_image_for_layer_1(){
+        var file_Input = document.createElement('input');
+        file_Input.type = "file";
+        file_Input.name = "image";
+        file_Input.accept = ".png, .jpg, .jpeg";
+        file_Input.id = "add_1";
+        file_Input.style.display = "none";
+
+        document.head.appendChild(file_Input);
+
+        file_Input.click();
+
+        file_Input.addEventListener('change', ()=>{
+            // style_build += `background-image: url(${blob});`;
+            var blob = URL.createObjectURL(file_Input.files[0]);
+            // document.getElementById('layer-1').style.backgroundImage = `url(${blob})`;
+            // document.getElementById('layer-1').style.color = 'transparent';
+            // document.getElementById('layer-1').style.height = '300px';
+            // document.getElementById('layer-1').style.width = '300px';
+            // document.getElementById('layer-1').style.backgroundSize = 'cover';
+            // document.getElementById('layer-1').innerHTML +='e';
+            // document.getElementById('img').src = blob;
+            img_layer_1.src = blob;
+
+            document.getElementById('layer-1').appendChild(img_layer_1);
+
+            document.getElementById("layer-1").id = "layer-1-temp";
+            img_layer_1.id = "layer-1"
+
+            document.getElementById("layer-2-temp").id = "layer-2";
+            img_layer_2.id = "img-2"
+
+            document.getElementById("layer-3-temp").id = "layer-3";
+            img_layer_3.id = "img-3"
+        });
+
+        file_Input.remove();
+    }
+
+
+
+    function add_image_for_layer_2(){
+        var file_Input = document.createElement('input');
+        file_Input.type = "file";
+        file_Input.name = "image";
+        file_Input.accept = ".png, .jpg, .jpeg";
+        file_Input.id = "add_2";
+        file_Input.style.display = "none";
+
+        document.head.appendChild(file_Input);
+
+        file_Input.click();
+
+        file_Input.addEventListener('change', ()=>{
+            var blob = URL.createObjectURL(file_Input.files[0]);
+            img_layer_1.src = blob;
+
+            document.getElementById('layer-2').appendChild(img_layer_1);
+
+            document.getElementById("layer-2").id = "layer-2-temp";
+            img_layer_1.id = "layer-2"
+
+            document.getElementById("layer-1-temp").id = "layer-1";
+            img_layer_1.id = "img-1"
+
+            document.getElementById("layer-3-temp").id = "layer-3";
+            img_layer_3.id = "img-3"
+        });
+
+        file_Input.remove();
+    }
+
+
+
+
+    function add_color_to_layer_3(){
+        var color = prompt ("Please enter a color name or hexadeciman color code");
+        document.getElementById('layer-3').style.backgroundColor = color;
+        document.getElementById('layer-3').style.height = '300px';
+        document.getElementById('layer-3').style.width = '300px';
+    }
+
+    function add_gcolor_to_layer_3(){
+        var degrees = prompt ("Please enter your gradient rotaion eg 45 , 90, 178, 248 etc.");
+        var c1 = prompt ("Please enter color 1 , color name or hexa decimal.");
+        var c2 = prompt ("Please enter color 2 , color name or hexa decimal.");
+        document.getElementById('layer-3').style.background = `linear-gradient(${degrees}deg, ${c1}, ${c2})`;
+        document.getElementById('layer-3').style.height = '300px';
+        document.getElementById('layer-3').style.width = '300px';
+    }
+</script>
+
+<script>
+    // layers
+    // layer_1
+    const layer_1_button_widget = ui.Android().Gbutton_type_2('layer 1', set_layer_1);
+    layer_1_button_widget.height = '150px';
+    layer_1_button_widget.width = '150px';
+    layer_1_button_widget.render(document.getElementById('widget'));
+
+
+    // layer_2
+    const layer_2_button_widget = ui.Android().Gbutton_type_2('layer 2', set_layer_2);
+    layer_2_button_widget.height = '150px';
+    layer_2_button_widget.width = '150px';
+    layer_2_button_widget.render(document.getElementById('widget'));
+
+
+    // layer_3
+    const layer_3_button_widget = ui.Android().Gbutton_type_2('layer 3', set_layer_3);
+    layer_3_button_widget.height = '150px';
+    layer_3_button_widget.width = '150px';
+    layer_3_button_widget.render(document.getElementById('widget'));
+
+
+    // layer_main
+    const layer_main_button_widget = ui.Android().Gbutton_type_2('layer main', set_layer_main);
+    layer_main_button_widget.height = '150px';
+    layer_main_button_widget.width = '150px';
+    layer_main_button_widget.render(document.getElementById('widget'));
+
+    // config
+    const config_button_widget = ui.Android().Gbutton_type_2('Project \n Config', config);
+    config_button_widget.height = '150px';
+    config_button_widget.width = '150px';
+    config_button_widget.render(document.getElementById('widget'));
+
+
+
+
+    // bottoms
+    // change_bg_layer_1
+    const change_bg_layer_1_button_widget = ui.Android().Gbutton_type_2('+ Add Image <br> Layer 1', add_image_for_layer_1);
+    change_bg_layer_1_button_widget.height = '150px';
+    change_bg_layer_1_button_widget.width = '150px';
+    change_bg_layer_1_button_widget.render(document.getElementById('bottom'));
+
+
+
+    // change_bg_layer_1
+    const change_bg_layer_2_button_widget = ui.Android().Gbutton_type_2('+ Add Image <br> Layer 2', add_image_for_layer_2);
+    change_bg_layer_2_button_widget.height = '150px';
+    change_bg_layer_2_button_widget.width = '150px';
+    change_bg_layer_2_button_widget.render(document.getElementById('bottom'));
+
+
+
+    const change_bg_layer_3_button_widget = ui.Android().Gbutton_type_3('+ Add Color <br> Layer 3', add_color_to_layer_3);
+    change_bg_layer_3_button_widget.height = '150px';
+    change_bg_layer_3_button_widget.width = '150px';
+    change_bg_layer_3_button_widget.render(document.getElementById('bottom'));
+
+
+    const change_bg_gradient_layer_3_button_widget = ui.Android().Gbutton_type_3('+ Add Gradient <br> Layer 3', add_gcolor_to_layer_3);
+    change_bg_gradient_layer_3_button_widget.height = '150px';
+    change_bg_gradient_layer_3_button_widget.width = '150px';
+    change_bg_gradient_layer_3_button_widget.render(document.getElementById('bottom'));
+</script>
+
+
+<script>
+    // export logic
+    function export_project(){
+        alert("Alert: Your image is being rendered as html pixels and due to that the current renderer is html2canvas and this renderer may have some bugs which might not render the whole image which you can see here in this case consider picking a screen shot and then cropping it with a seperate tool, We are working on renderer but currently we only has html2canvas as a rendering option so if your image is not looking as it is here please do not report it as a bug because it is the renderer bug report it to html2canvas not for NAIFS")
+        toPng('project', project_name, { width: 1920, height: 1080 });
+    }
+
+    function export_project_1440(){
+        alert("Alert: Your image is being rendered as html pixels and due to that the current renderer is html2canvas and this renderer may have some bugs which might not render the whole image which you can see here in this case consider picking a screen shot and then cropping it with a seperate tool, We are working on renderer but currently we only has html2canvas as a rendering option so if your image is not looking as it is here please do not report it as a bug because it is the renderer bug report it to html2canvas not for NAIFS")
+        toPng('project', project_name + "(1440)", { width: 2560, height: 1440 });
+    }
+
+    function export_project_4k(){
+        alert("Alert: Your image is being rendered as html pixels and due to that the current renderer is html2canvas and this renderer may have some bugs which might not render the whole image which you can see here in this case consider picking a screen shot and then cropping it with a seperate tool, We are working on renderer but currently we only has html2canvas as a rendering option so if your image is not looking as it is here please do not report it as a bug because it is the renderer bug report it to html2canvas not for NAIFS")
+        toPng('project', project_name + "(4k)", { width: 3840, height: 2160 });
+    }
+
+    function export_project_8k(){
+        alert("Alert: Your image is being rendered as html pixels and due to that the current renderer is html2canvas and this renderer may have some bugs which might not render the whole image which you can see here in this case consider picking a screen shot and then cropping it with a seperate tool, We are working on renderer but currently we only has html2canvas as a rendering option so if your image is not looking as it is here please do not report it as a bug because it is the renderer bug report it to html2canvas not for NAIFS")
+        toPng('project', project_name + "(8k)", { width: 7680, height: 4320 });
+    }
+</script>
+
+<script>
+    // exports
+    const export_button_widget = ui.Android().Gbutton_type_4('Export Project', export_project);
+    export_button_widget.height = '150px';
+    export_button_widget.width = '150px';
+    export_button_widget.render(document.getElementById('bottom'));
+
+
+    const export_button_1440_widget = ui.Android().Gbutton_type_4('Export Project <br> (1440)', export_project_1440);
+    export_button_1440_widget.height = '150px';
+    export_button_1440_widget.width = '150px';
+    export_button_1440_widget.render(document.getElementById('bottom'));
+
+
+    const export_button_4k_widget = ui.Android().Gbutton_type_4('Export Project <br> (4k)', export_project_4k);
+    export_button_4k_widget.height = '150px';
+    export_button_4k_widget.width = '150px';
+    export_button_4k_widget.render(document.getElementById('bottom'));
+
+
+    const export_button_8k_widget = ui.Android().Gbutton_type_4('Export Project <br> (8k)', export_project_8k);
+    export_button_8k_widget.height = '150px';
+    export_button_8k_widget.width = '150px';
+    export_button_8k_widget.render(document.getElementById('bottom'));
+</script>
+</html>

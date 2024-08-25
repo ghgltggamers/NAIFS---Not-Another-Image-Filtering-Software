@@ -1,0 +1,535 @@
+/*
+
+    Molten css - A css specification for web development
+    Copyright (c) Molten css 2024
+    Written by ghgltggamer
+    Start date : 13th aug 2024 19:56pm
+    License : Protected under MIT License of Open Source Software development
+    License file : LICENSE.txt
+
+*/
+
+/* default color theme */
+body{
+    background-color: whitesmoke;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'molten-css-font-Quicksand', Arial;
+    color: #424242;
+}
+
+/* Adding some styles to everysingle html element */
+*{
+    font-family: 'molten-css-font-Quicksand', Arial;
+    -webkit-tap-highlight-color: transparent; /* This will protect your website on mobile browsers based on chromium web engine to not leave a dirty blue tap color and set it to transparent */
+    transition: 0.5s; /* Modern websites uses transitions so every single element will have trasitions on it */
+}
+
+h1{
+    font-weight: 700; /* giving weight of 700 is perfect for h1 */
+    margin: 20px; /* Spacing makes any design eye catching so 20 pixels spacing is good for heading 1 */
+    /* Note : Do not use h1 for text size because it impacts the SEO directly. Use it once specially on navigation bar with nav tag and then use h2 for subheaddings and h3 for insider subheaddings and be consistent*/
+    font-size: 30px; /* For showing that this is a headding and no 1 30pixels size is good */
+}
+
+nav{
+    height: 70px;
+    width: auto;
+    /* We need height of 70 pixels because 70 pixels are not too over whelming and suitable for both mobile and desktop devices and width is auto so that if navigation is the child of another element then it can resize it self according to it's parent width */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+}
+
+nav:hover{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+p{
+    line-height: 25px;
+    word-spacing: 2px;
+}
+
+hr{
+    border: 1px solid silver;
+    border-radius: 100%;
+}
+
+button{
+    background-color: white;
+    height: 50px;
+    width: 200px;
+    border: 0.5px solid silver;
+    font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(160, 160, 160);
+    /* color: white; */
+    font-weight: bold;
+}
+/* button:active{
+    background-color: #424242;
+    cursor: grab;
+} */
+button:focus{
+    cursor: pointer;
+    background-color: gray;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+/* 
+Some button classes
+*/
+.molten-css-power-button{
+    background-color: red;
+    height: 50px;
+    width: 200px;
+    border: 0.5px solid silver;
+    font-weight: bold;
+    color: white;
+}
+.molten-css-power-button:hover{
+    cursor: pointer;
+    background-color: orangered;
+    /* color: white; */
+    font-weight: bold;
+}
+/* button:active{
+    background-color: #424242;
+    cursor: grab;
+} */
+.molten-css-power-button:focus{
+    cursor: pointer;
+    background-color: darkred;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+/* energy button */
+.molten-css-energy-button{
+    background-color: green;
+    height: 50px;
+    width: 200px;
+    border: 0.5px solid silver;
+    font-weight: bold;
+    color: white;
+}
+.molten-css-energy-button:hover{
+    cursor: pointer;
+    background-color: rgb(0, 148, 0);
+    /* color: white; */
+    font-weight: bold;
+}
+/* button:active{
+    background-color: #424242;
+    cursor: grab;
+} */
+.molten-css-energy-button:focus{
+    cursor: pointer;
+    background-color: rgb(0, 90, 0);
+    font-weight: bold;
+    color: white;
+}
+
+
+
+/* trust button */
+.molten-css-trust-button{
+    background-color: rgb(33, 33, 151);
+    height: 50px;
+    width: 200px;
+    border: 0.5px solid silver;
+    font-weight: bold;
+    color: white;
+}
+.molten-css-trust-button:hover{
+    cursor: pointer;
+    background-color: rgb(30, 30, 187);
+    /* color: white; */
+    font-weight: bold;
+}
+/* button:active{
+    background-color: #424242;
+    cursor: grab;
+} */
+.molten-css-trust-button:focus{
+    cursor: pointer;
+    background-color: rgb(11, 11, 107);
+    font-weight: bold;
+    color: white;
+}
+
+
+/* text modifications */
+.molten-css-fancy-text{
+    background-image: linear-gradient(orange, red);
+    background-clip: text;
+    color: transparent;
+}
+
+
+
+/* footers */
+footer{
+    font-weight: bold;
+    text-align: center;
+    font-family: 'molten-css-font-Oregon';
+}
+
+/* 
+
+    Update : started updating this on Aug 14 2024 at 08:26am 
+
+*/
+
+/* 
+    Specifications update
+*/
+.molten-css-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+/* Creates a card to a element 
+also has sub properties 
+can-hover : allows the card to be hovered
+can-click : allows the card to be clicked
+*/
+.molten-css-card-can-hover {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.molten-css-card-can-hover:hover{
+    transform: scaleY(1.1);
+    cursor: pointer;
+}
+
+
+.molten-css-card-can-click {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+.molten-css-card-can-click:hover{
+    transform: scaleY(1.1);
+    cursor: pointer;
+}
+.molten-css-card-can-click:active{
+    transform: scale(0.9);
+    cursor: grab;
+    opacity: 0.7;
+}
+
+/* 
+
+    User input specification
+
+*/
+input{
+    background-color: rgba(255, 255,255,0.5);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    outline: none;
+}
+input:hover{
+    background-color: rgba(255, 255,255,0.3);
+    cursor: pointer;
+}
+input:active{
+    border: 3px solid rgb(174, 223, 223);
+    cursor: text;
+}
+input:focus{
+    border: 3px solid rgb(174, 223, 223);
+    cursor: text;
+}
+
+
+
+
+textarea{
+    background-color: rgba(255, 255,255,0.5);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    outline: none;
+}
+textarea:hover{
+    background-color: rgba(255, 255,255,0.3);
+    cursor: pointer;
+}
+textarea:active{
+    border: 3px solid rgb(174, 223, 223);
+    cursor: text;
+}
+textarea:focus{
+    border: 3px solid rgb(174, 223, 223);
+    cursor: text;
+}
+
+/* Button update */
+button:hover{
+    background-color: silver;
+}
+button:focus{
+    background-color: white;
+    border: 3px solid rgb(174, 223, 223);
+    color: black;
+    outline: none;
+}
+
+
+
+
+
+
+
+/* Some flags which can be given to parent element which is holding the childern elements */
+/* These flags are for changing appearance , Use them with class property of html */
+/* Syntax  --molten-css- flag , ie : --molten-css-spacing-major */
+.--molten-css-spacing-major p{
+    line-height: 30px;
+    word-spacing: 2px;
+}
+
+.--molten-css-spacing-minor p{
+    line-height: 10px;
+    word-spacing: 0px;
+}
+/* 
+spacing-major flag tells the webengine to increase the spacing by major , minor does least spacing
+*/
+
+.--molten-css-spacing-everywhere *{
+    margin: 10px;
+}
+/* 
+spacing-everywhere tells the webengine to add spacing everywhere simply to all the html elements
+
+This also has sub types :
+    major and minor
+    major means too much and minor means too less
+*/
+.--molten-css-spacing-everywhere-major *{
+    margin: 20px;
+}
+
+.--molten-css-spacing-everywhere-minor *{
+    margin: 0px;
+}
+
+/* 
+
+    This is the testing version and may not contain all the specifications which main version may contain
+    ended up at : same day 21:04
+
+*/
+
+
+/* 
+
+    Update : started updating this on Aug 14 2024 at 08:26am 
+
+*/
+
+/* 
+
+    Flags update
+
+*/
+
+.--molten-css-flex-box{
+    display: flex;
+}
+/* flex-box flag coverts the applied element into a flex box */
+.--molten-css-align-item-center{
+    align-items: center;
+}
+
+.--molten-css-justify-content-center{
+    justify-content: center;
+}
+
+/* 
+align-items-center positions the children to center vertically [|]
+justify-content-center positions the childern to center horizontly [-]
+*/
+
+.--molten-css-centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 50%; */
+}
+
+/* 
+centered flag positions the childern to centered both vertically and horizontly [|] [-]
+*/
+
+
+.--molten-css-box{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 400px;
+    max-width: 400px;
+}
+/* 
+
+    Converts any element into a box
+    also has scale factor properties
+     Note: a scale factor can only range between 0 and 9 and if no value has been given then by default scale factor property will set to 0
+     Scale factor can be 999 or infinite also to set infinite scale, but infinite directly afftects the height scale
+
+*/
+.--molten-css-box-scale-factor{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.--molten-css-box-scale-factor-0{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.--molten-css-box-scale-factor-1{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.--molten-css-box-scale-factor-2{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.--molten-css-box-scale-factor-3{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.--molten-css-box-scale-factor-4{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.--molten-css-box-scale-factor-5{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 600px;
+    max-width: 600px;
+}
+
+.--molten-css-box-scale-factor-6{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 700px;
+    max-width: 700px;
+}
+
+.--molten-css-box-scale-factor-7{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 800px;
+    max-width: 800px;
+}
+
+.--molten-css-box-scale-factor-8{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 900px;
+    max-width: 900px;
+}
+
+.--molten-css-box-scale-factor-9{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 1000px;
+    max-width: 1000px;
+}
+
+.--molten-css-box-scale-factor-999{
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 100%;
+    max-width: 100vh;
+}
+
+.--molten-css-box-scale-factor-infinite{
+    height: 100%;
+    width: 100vh;
+}
+
+
+
+
+/* 
+GLobal flags for scale factor */
+.--molten-css-scale-factor-infinite{
+    height: 100vh;width: 100%;
+}
+.--molten-css-scale-factor-999{
+    max-height: 100vh;max-width: 100%;
+}
+
+
+
+
+
+/* 
+
+    Updated GLobal styles for fixing transparency issues
+
+*/
+*{
+    backdrop-filter: blur(5px);
+}
+
+
+
+
+
+/* 
+
+    More powerfull flahs which can turn the look of the whole website
+
+*/
+
+.molten-css-glass *{
+    opacity: 0.7;
+    border: 1px solid whitesmoke;
+}
+/* 
+
+    This flag turns the whole website too look glassy
+
+*/
+
+
+.--molten-css-premium-design *{
+    background-image: linear-gradient(to bottom right, white, silver);
+}

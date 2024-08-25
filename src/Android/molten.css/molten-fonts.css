@@ -1,0 +1,150 @@
+/*
+
+    Molten fonts - A css font specification for web development
+    Copyright (c) Molten css 2024
+    Written by ghgltggamer
+    Start date : 13th aug 2024 19:22pm
+    License : Protected under MIT License of Open Source Software development
+    License file : LICENSE.txt
+
+*/
+
+/* GamiliaDemo font */
+@font-face {
+    font-family: 'molten-css-font-GamiliaDemoRegular';
+    src: url("assets/fonts/GamiliaDemoRegular-d9DL7.ttf");
+}
+
+/* SpButchLite font */
+@font-face {
+    font-family: 'molten-css-font-SpButchLite';
+    src: url("assets/fonts/SpButchLiteLight-Yq338.otf");
+}
+
+@font-face {
+    font-family: 'molten-css-font-SpButchLiteLight';
+    src: url("assets/fonts/SpButchLiteLight-Yq338.otf");
+}
+
+@font-face {
+    font-family: 'molten-css-font-SpButchLiteMedium';
+    src: url("assets/fonts/SpButchLiteMedium-rv229.otf");
+}
+
+@font-face {
+    font-family: 'molten-css-font-SpButchLiteBold';
+    src: url("assets/fonts/SpButchLiteBold-8O88B.otf");
+}
+
+/* LucyTheCat font */
+@font-face {
+    font-family: 'molten-css-font-LucyTheCatRegular';
+    src: url("assets/fonts/LucyTheCatRegular-Bg9x.ttf");
+}
+
+/* FallIsComming font */
+@font-face {
+    font-family: 'molten-css-font-FallIsComming';
+    src: url('assets/fonts/FallIsComingRegular-Mx9B.ttf');
+}
+
+/* Oregon font */
+@font-face {
+    font-family: 'molten-css-font-Oregon';
+    src: url('assets/fonts/OregonLdo-d9q7.ttf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-OregonBook';
+    src: url('assets/fonts/OregonLdoBook-4BYD.ttf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-OregonLight';
+    src: url('assets/fonts/OregonLdoLight-nRd4.ttf');
+}
+
+/* SangGuru font */
+@font-face {
+    font-family: 'molten-css-font-SangGuru';
+    src: url('assets/fonts/SangGuru-OVmgP.ttf');
+}
+
+/* JosenFinSans font */
+@font-face {
+    font-family: 'molten-css-font-JosenFinSans';
+    src: url('assets/fonts/JosefinSansRegular-x3LYV.ttf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-JosenFinSansLight';
+    src: url('assets/fonts/JosefinSansLight-ZVEll.ttf');
+}
+
+/* Steiner font */
+@font-face {
+    font-family: 'molten-css-font-Steiner';
+    src: url('assets/fonts/SteinerLight-JR1o.ttf');
+}
+
+/* FallingSky font */
+@font-face {
+    font-family: 'molten-css-font-FallingSky';
+    src: url('assets/fonts/FallingSkyCondensed-9qm2.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyOblique';
+    src: url('assets/fonts/FallingSkyCondensedOblique-leLw.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyCondensedOutline';
+    src: url('assets/fonts/FallingSkyCondensedOutline-n5XO.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyCondensedOutlineOblique';
+    src: url('assets/fonts/FallingSkyCondensedOutlineOblique-1qZv.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyExtendedOutline';
+    src: url('assets/fonts/FallingSkyExtendedOutline-8qjn.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyExtendedOutlineOblique';
+    src: url('assets/fonts/FallingSkyExtendedOutlineOblique-YBO2.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyOutline';
+    src: url('assets/fonts/FallingSkyOutline-1qZ0.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-FallingSkyOutlineOblique';
+    src: url('assets/fonts/FallingSkyOutlineOblique-RLdV.otf');
+}
+
+/* Quicksand font */
+@font-face {
+    font-family: 'molten-css-font-Quicksand';
+    src: url('assets/fonts/Quicksand_Light.otf');
+}
+
+@font-face {
+    font-family: 'molten-css-font-QuicksandBook';
+    src: url('assets/fonts/Quicksand_Book.otf');
+}
+
+
+/* Ended on same day 19:56pm */
+/* 
+
+    Note : This file is just a part of whole Molten css specification or simply API, and this is only 3% of whole source code make sure to link this file with project files as well
+
+    Syntax use css standard font-family property with the following syntax 'molten-css-font-desired font name' make sure to use only supported fonts
+
+*/

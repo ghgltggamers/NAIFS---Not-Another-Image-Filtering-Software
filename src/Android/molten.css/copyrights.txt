@@ -1,0 +1,10 @@
+/*
+
+    Molten copyrights - A css font specification for web development
+    Copyright (c) Molten css 2024
+    Written by ghgltggamer
+    Start date : 13th aug 2024 19:22pm
+    License : Protected under MIT License of Open Source Software development
+    License file : LICENSE.txt
+
+*/

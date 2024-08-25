@@ -1,0 +1,51 @@
+*{
+    font-family: 'molten-css-font-Quicksand';
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+nav{
+    padding-left: 20px;
+    font-size: 30px;
+    height: 80px;
+}
+
+nav img{
+    width: 30px;
+    border-radius: 5px;
+    border: 5px double gray;
+    margin: 10px;
+}
+
+#settings-icon{
+    max-height: 50px;
+    max-width: 80px;
+    overflow: hidden;
+    margin-left: 100px;
+}
+
+.settings-panel{
+    height: 100px;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 7%;
+    border: 1px solid gray;
+    color: #1C1C1C;
+    padding: 5%;
+    background-color: white;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    transition: 2s;
+    overflow: hidden;
+}
+
+.settings-panel b{
+    font-style: oblique;
+}
+
+
+#close-settings-button *{
+    text-align: center;
+}
